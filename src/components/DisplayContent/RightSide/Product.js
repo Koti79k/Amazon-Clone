@@ -1,5 +1,6 @@
 import React from 'react';
 import "./RightSide.css";
+import { Rating } from '@mui/material';
 
 function Product(props) {
     return (
@@ -8,7 +9,10 @@ function Product(props) {
           <img src={props.defination.image} height="300px" />
         </div>
         <div className="product_name">{props.defination.name}</div>
-        <div className="product_rating">{props.defination.rating}</div>
+        <div className="product_rating">
+          <Rating name="read-only" value="4" style={{fontSize:"20px"}} readOnly />
+          {props.defination.rating}
+        </div>
         <div className="product_price">{props.defination.price}</div>
       </div>
     );

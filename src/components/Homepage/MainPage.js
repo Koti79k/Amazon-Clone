@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./main_page.css";
+import "./MainPage.css";
 import AdvertisementFour from './AdvertisementFour/AdvertisementFour';
 import AdvertisementOne from './AdvertisementOne/AdvertisementOne';
 

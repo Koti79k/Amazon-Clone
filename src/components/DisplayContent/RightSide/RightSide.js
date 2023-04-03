@@ -9,28 +9,28 @@ function RightSide(props) {
     let list = [
       {
         name: "Redmi 9",
-        rating: "5",
+        rating: "4265",
         price: "7,999",
         image:
           "https://ik.imagekit.io/a7tcqauqn/amazon-image/mobiles/71w3oJ7aWyL._AC_UL640_FMwebp_QL65_.webp?updatedAt=1680099277169",
       },
       {
         name: "Redmi 7",
-        rating: "4",
+        rating: "6594",
         price: "8,999",
         image:
           "https://ik.imagekit.io/a7tcqauqn/amazon-image/mobiles/71w3oJ7aWyL._AC_UL640_FMwebp_QL65_.webp?updatedAt=1680099277169",
       },
       {
         name: "Redmi 10",
-        rating: "4.5",
+        rating: "39935",
         price: "9,999",
         image:
           "https://ik.imagekit.io/a7tcqauqn/amazon-image/mobiles/71w3oJ7aWyL._AC_UL640_FMwebp_QL65_.webp?updatedAt=1680099277169",
       },
       {
         name: "Redmi 11",
-        rating: "4.5",
+        rating: "78695",
         price: "10,999",
         image:
           "https://ik.imagekit.io/a7tcqauqn/amazon-image/mobiles/71w3oJ7aWyL._AC_UL640_FMwebp_QL65_.webp?updatedAt=1680099277169",
