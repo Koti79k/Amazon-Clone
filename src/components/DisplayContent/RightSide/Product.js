@@ -1,6 +1,7 @@
 import React from 'react';
 import "./RightSide.css";
 import { Rating } from '@mui/material';
+import getSymbolFromCurrency from 'currency-symbol-map';
 
 function Product(props) {
     return (
@@ -10,10 +11,18 @@ function Product(props) {
         </div>
         <div className="product_name">{props.defination.name}</div>
         <div className="product_rating">
-          <Rating name="read-only" value="4" style={{fontSize:"20px"}} readOnly />
+          <Rating
+            name="read-only"
+            value="4"
+            style={{ fontSize: "20px" }}
+            readOnly
+          />
           {props.defination.rating}
         </div>
-        <div className="product_price">{props.defination.price}</div>
+        <div className="product_price">
+          {getSymbolFromCurrency('INR')}
+          {props.defination.price}
+        </div>
       </div>
     );
 }
