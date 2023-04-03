@@ -3,6 +3,7 @@ import DisplayContent from './components/DisplayContent/DisplayContent';
 import NavBar from './components/Navbar/navbar';
 import MainPage from './components/Homepage/MainPage';
 import PlaceOrder from './components/PlaceOrder/PlaceOrder';
+import Checkout from './components/Checkout/Checkout';
 
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
       <NavBar />
       {/* <MainPage /> */}
       {/* <DisplayContent/> */}
-      <PlaceOrder/>
+      {/* <PlaceOrder/> */}
+      <Checkout/>
     </div>
   );
 }
