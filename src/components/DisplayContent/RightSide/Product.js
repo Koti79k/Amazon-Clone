@@ -9,7 +9,9 @@ function Product(props) {
         <div className="product_image">
           <img src={props.defination.image} height="300px" />
         </div>
-        <div className="product_name">{props.defination.name}</div>
+        <div className="product_name">
+          {props.defination.name}
+        </div>
         <div className="product_rating">
           <Rating
             name="read-only"
