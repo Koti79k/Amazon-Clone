@@ -1,62 +1,75 @@
 import React, { useEffect, useState } from 'react';
 import "./RightSide.css";
 import Product from './Product';
+import { Link } from 'react-router-dom';
 
 function RightSide(props) {
   const [listOfProduct, setListOfProducts] = useState([]);
-  useEffect(() => {
-    //api call
-    let list = [
-      {
-        name: "Redmi 9",
-        rating: "4265",
-        price: "7,999",
-        image:
-          "https://ik.imagekit.io/a7tcqauqn/amazon-image/mobiles/71w3oJ7aWyL._AC_UL640_FMwebp_QL65_.webp?updatedAt=1680099277169",
-      },
-      {
-        name: "Redmi 7",
-        rating: "6594",
-        price: "8,999",
-        image:
-          "https://ik.imagekit.io/a7tcqauqn/amazon-image/mobiles/71w3oJ7aWyL._AC_UL640_FMwebp_QL65_.webp?updatedAt=1680099277169",
-      },
-      {
-        name: "Redmi 10",
-        rating: "39935",
-        price: "9,999",
-        image:
-          "https://ik.imagekit.io/a7tcqauqn/amazon-image/mobiles/71w3oJ7aWyL._AC_UL640_FMwebp_QL65_.webp?updatedAt=1680099277169",
-      },
-      {
-        name: "Redmi 11",
-        rating: "78695",
-        price: "10,999",
-        image:
-          "https://ik.imagekit.io/a7tcqauqn/amazon-image/mobiles/71w3oJ7aWyL._AC_UL640_FMwebp_QL65_.webp?updatedAt=1680099277169",
-      },
-    ];
-    setListOfProducts(list);
-     // setListOfProducts function is used to update the component's state 
-    //with this list of products.
-  },);
+
+    useEffect(() => {
+      //api call
+      let list = [
+        {
+          id: 123456543,
+          name: "Iphone10",
+          rating: "34565",
+          price: "4534",
+          image:
+            "https://ik.imagekit.io/amazon123/71i2XhHU3pL._AC_UL640_FMwebp_QL65__bSvBM9yyu9E.webp?updatedAt=1628852293583",
+        },
+        {
+          id: 54342265,
+          name: "Iphone11",
+          rating: "656",
+          price: "76543456",
+          image:
+            "https://ik.imagekit.io/amazon123/71ZOtNdaZCL._AC_UL640_FMwebp_QL65__mSWkMhTkWnT.webp?updatedAt=1628852292388",
+        },
+        {
+          id: 123453456543,
+          name: "Iphone12",
+          rating: "8754",
+          price: "76543",
+          image:
+            "https://ik.imagekit.io/amazon123/71w3oJ7aWyL._AC_UL640_FMwebp_QL65__vN39lpgzi.webp?updatedAt=1628852294578",
+        },
+        {
+          id: 12344545456543,
+          name: "Iphone13",
+          rating: "344574367565",
+          price: "637357",
+          image:
+            "https://ik.imagekit.io/amazon123/51PuFBgBK4L._AC_UL640_FMwebp_QL65__3iZl6oRR-.webp?updatedAt=1628852291461",
+        },
+        {
+          id: 123465656543,
+          name: "Iphone12",
+          rating: "8754",
+          price: "76543",
+          image:
+            "https://ik.imagekit.io/amazon123/71w3oJ7aWyL._AC_UL640_FMwebp_QL65__vN39lpgzi.webp?updatedAt=1628852294578",
+        },
+        {
+          id: 2356346363,
+          name: "Iphone13",
+          rating: "344574367565",
+          price: "637357",
+          image:
+            "https://ik.imagekit.io/amazon123/51PuFBgBK4L._AC_UL640_FMwebp_QL65__3iZl6oRR-.webp?updatedAt=1628852291461",
+        },
+      ];
+
+      setListOfProducts(list);
+    }, []);
+  
     return (
       <div className="RightSide_main">
-        {/* <Product
-          rating="5"
-          price="2999"
-          name="Redmi Mobile"
-          image="https://ik.imagekit.io/a7tcqauqn/amazon-image/mobiles/71w3oJ7aWyL._AC_UL640_FMwebp_QL65_.webp?updatedAt=1680099277169"/>
-        <Product />
-        <Product />
-        <Product /> */}
-
         {/* -------- for iterating the objects which is present in list ------- */}
-        {
-          listOfProduct.map((item) => (
+        {listOfProduct.map((item) => (
+          <Link to={"/order/" + item.id}>
             <Product defination={item} />
-          ))
-        }
+          </Link>
+        ))}
       </div>
     );
 }
