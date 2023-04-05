@@ -15,7 +15,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route path="/display">{<DisplayContent />}</Route>
-          <Route path="/order">{<PlaceOrder />}</Route>
+          <Route path="/order/:id">{<PlaceOrder />}</Route>
           <Route path="/checkout">{<Checkout />}</Route>
           <Route path="">{<MainPage />}</Route>
         </Switch>
