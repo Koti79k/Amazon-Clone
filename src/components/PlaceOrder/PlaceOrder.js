@@ -1,14 +1,22 @@
 import { Grid, Paper, Rating } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./PlaceOrder.css";
 import { Link } from "react-router-dom";
+import { CartContext } from "../CartContextProvider";
 
 
 function PlaceOrder(props) {
+
+  const { item, size, increment } = useContext(CartContext);
+  
   const [productDetails, setProductDetails] = useState([]); // Define a state variable "productDetails" that will hold the details of the selected product.
   let { id } = useParams(); // Retrieve the "id" parameter from the URL.
 
+  const addTOCart = function () {
+    increment(productDetails);
+  };
+  
   useEffect(() => {
     // Execute the following code when the component mounts and whenever the "id" parameter changes.
     // Simulate an API call to retrieve product details.
@@ -139,18 +147,31 @@ function PlaceOrder(props) {
 
   return (
     <div>
-      <Grid container> {/* We're using Material UI's Grid component for layout */}
-        <Grid item xs={5}> {/* This grid item takes up 5 of 12 columns on screens that are extra-small (xs) or larger */}
+      <Grid container>
+        {" "}
+        {/* We're using Material UI's Grid component for layout */}
+        <Grid item xs={5}>
+          {" "}
+          {/* This grid item takes up 5 of 12 columns on screens that are extra-small (xs) or larger */}
           <img className="placeorder__image" src={productDetails.image} />
         </Grid>
         <Grid item xs={4}>
           <div className="placeholder__description">
-            <div style={{ fontSize: "24px", lineHeight: "32px", fontWeight: 500 }}>
-            {" "} {productDetails.name}{" "} {/* We display the product's name */}
+            <div
+              style={{ fontSize: "24px", lineHeight: "32px", fontWeight: 500 }}
+            >
+              {" "}
+              {productDetails.name} {/* We display the product's name */}
             </div>
             <div>
-              <Rating name="read-only" value="3" readOnly style={{ fontSize: "20px" }} />
-              {productDetails.ratings} ratings |{productDetails.review}+ answered questions
+              <Rating
+                name="read-only"
+                value="3"
+                readOnly
+                style={{ fontSize: "20px" }}
+              />
+              {productDetails.ratings} ratings |{productDetails.review}+
+              answered questions
             </div>
             <hr></hr>
             <div>
@@ -164,11 +185,15 @@ function PlaceOrder(props) {
               <div className="textgap">
                 EMI starts at ₹ {productDetails.emi}. No Cost EMI available
               </div>
-              <div style={{ color: "#007600", fontSize: "20px" }} className="textgap" >
+              <div
+                style={{ color: "#007600", fontSize: "20px" }}
+                className="textgap"
+              >
                 {productDetails.status}
               </div>
               <div className="textgap">
-                Sold by <strong>{productDetails.soldby}</strong> and Fulfilled by Amazon.
+                Sold by <strong>{productDetails.soldby}</strong> and Fulfilled
+                by Amazon.
               </div>
             </div>
             <div>
@@ -207,14 +232,16 @@ function PlaceOrder(props) {
                   <input type="checkbox"></input>Apple 20W USB Power Adapter
                 </label>
               </div>
+
               <div>
+                <button className="placeorder__button addtocart" onClick={addTOCart}>
+                  Add to Cart
+                </button>
                 <Link to="/checkout">
-                  <button className="placeorder__button addtocart">
-                    Add to Cart
-                  </button>
+                  <button className="placeorder__button buynow">Buy Now</button>
                 </Link>
-                <button className="placeorder__button buynow">Buy Now</button>
               </div>
+
             </div>
           </Paper>
         </Grid>

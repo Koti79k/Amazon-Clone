@@ -1,16 +1,25 @@
 import { Grid } from "@mui/material";
 import "./Checkout.css";
 import CheckoutItems from "./CheckoutItems";
+import { CartContext } from "../CartContextProvider";
+import { useContext } from "react";
 
 function Checkout(props) {
-  // Rendering the shopping cart interface with a two-column layout
+  const { item, size, increment } = useContext(CartContext);
+
+  const cartValue = function () {
+    let price = 0;
+    for (let i = 0; i < item.length; i++) {
+      price += parseInt(item[i].price);
+    }
+    return price;
+  };
+
   return (
     <div className="checkout__body">
       <Grid container>
-        {/* Defining the left column with 10 out of 12 grid units */}
         <Grid item={10}>
           <div className="checkout__container">
-            {/* Rendering the shopping cart header */}
             <div
               style={{
                 fontSize: "30px",
@@ -20,17 +29,20 @@ function Checkout(props) {
             >
               Shopping Cart
             </div>
-            {/* Rendering a message if the cart is empty */}
-            <div>Please buy something</div>
-            {/* Rendering the cart items with the CheckoutItems component */}
-            <CheckoutItems />
-            <CheckoutItems />
-            <CheckoutItems />
+            <div>
+              {item.length > 0 ? (
+                item.map((value) => <CheckoutItems definition={value} />)
+              ) : (
+                <div style={{ height: "100vh", margin: "30px" }}>
+                  {" "}
+                  Please buy something
+                </div>
+              )}
+
+            </div>
           </div>
         </Grid>
-        {/* Defining the right column with 2 out of 12 grid units */}
         <Grid item={2}>
-          {/* Rendering a white box with the "Proceed to Buy" button */}
           <div
             style={{
               width: "300px",
@@ -40,9 +52,10 @@ function Checkout(props) {
               backgroundColor: "white",
             }}
           >
-            <div style={{ fontSize: "26px" }}></div>
+            <div style={{ fontSize: "26px" }}>
+              Subtotal ( {size} items): <strong>{cartValue()}</strong>
+            </div>
             <div style={{ paddingTop: "25px " }}>
-              {/* Rendering the "Proceed to Buy" button */}
               <button className="placeorder__button">Proceed to Buy</button>
             </div>
           </div>
