@@ -1,0 +1,17 @@
+
+C:\Users\91901>node -v
+v18.15.0
+
+C:\Users\91901>npm -v
+9.5.0
+
+/*====== for Creating a new React app in VS code with appName amazon-clone ======*/
+1. npx create-react-app amazon-clone (after finished you will see Happy hacking!)
+
+2. cd Amazon-Clone (name of folder=amazon-clone)
+
+3. npm start (after finished: webpack compiled successfully)
+
+4. go to app.js and remove header section, import logo from './logo.svg';
+
+5. go to app.css : remove all code and make empty.
